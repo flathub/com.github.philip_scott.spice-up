@@ -106,8 +106,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.0.0.tar.gz",
-                    "sha256": "ee477a6953f357df3b4932107ac9cf0a9a09b27ccf9d4f1379fe9f1a3c13cfb2"
+                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.1.0.tar.gz",
+                    "sha256": "f9d0d04ec547767d2749201909bc7ae9721c012f1d02bd123465c343b2bebc0a"
                 },
                 {
                     "type": "patch",
