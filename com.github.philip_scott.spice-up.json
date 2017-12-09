@@ -25,7 +25,15 @@
     ],
     "modules": [
         {
-        "name": "libgee",
+            "name": "libgee",
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig",
+                "/lib/girepository-1.0",
+                "/share/vala",
+                "/share/gir-1.0",
+                "/lib/*.la"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -41,7 +49,16 @@
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib"
             ],
-
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/share/vala",
+                "/share/gir-1.0",
+                "/share/applications",
+                "/lib/pkgconfig",
+                "/lib/girepository-1.0",
+                "/lib/*.la"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -92,6 +109,14 @@
         },
         {
             "name": "libevdev",
+            "config-opts": ["--disable-static"],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/share/man",
+                "/lib/pkgconfig",
+                "/lib/*.la"
+            ],
             "sources": [
                 {
                     "type": "archive",
