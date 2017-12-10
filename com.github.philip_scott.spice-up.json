@@ -128,6 +128,13 @@
         {
             "name": "spiceup",
             "buildsystem": "cmake-ninja",
+            "post-install": [
+              "sed 's/application-x-spiceup/com.github.philip_scott.spice-up-mime/' /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml > /app/share/mime/packages/com.github.philip_scott.spice-up.mime.xml",
+              "rm /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml",
+              "for icon_size in 16x16 22x22 24x24 32x32 48x48 64x64 128x128 scalable; do
+                   mv /app/share/icons/hicolor/${icon_size}/mimetypes/{application-x-spiceup,com.github.philip_scott.spice-up-mime}.svg
+               done"
+            ],
             "sources": [
                 {
                     "type": "archive",
