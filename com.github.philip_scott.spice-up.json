@@ -1,8 +1,10 @@
 {
     "id": "com.github.philip_scott.spice-up",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "3.24",
-    "sdk": "org.gnome.Sdk",
+    "base": "io.elementary.Loki.BaseApp",
+	"base-version": "stable",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.6",
+    "sdk": "org.freedesktop.Sdk",
     "command": "com.github.philip-scott.spice-up",
     "rename-icon": "com.github.philip-scott.spice-up",
     "rename-desktop-file": "com.github.philip-scott.spice-up.desktop",
@@ -24,49 +26,6 @@
             "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "modules": [
-        {
-            "name": "libgee",
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig",
-                "/lib/girepository-1.0",
-                "/share/vala",
-                "/share/gir-1.0",
-                "/lib/*.la"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz",
-                    "sha256": "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
-                }
-            ]
-        },
-        {
-            "name": "granite",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_INSTALL_LIBDIR=/app/lib"
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/share/vala",
-                "/share/gir-1.0",
-                "/share/applications",
-                "/lib/pkgconfig",
-                "/lib/girepository-1.0",
-                "/lib/*.la"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://launchpad.net/granite/0.4/0.4.1/+download/granite-0.4.1.tar.xz",
-                    "sha256": "8bb411523e6cd5685c928dbfe08893892189cedf9fad5f537aa76182032cf09c"
-                }
-            ]
-        },
         {
             "name": "udev",
             "rm-configure": true,
@@ -120,8 +79,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.5.6.tar.xz",
-                    "sha256": "ecec7e9d66b1d3692f10b3b20aa97fb25e874a784c5552a7b1698091fef5a688"
+                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.5.9.tar.xz",
+                    "sha256": "e1663751443bed9d3e76a4fe2caf6fa866a79705d91cacad815c04e706198a75"
                 }
             ]
         },
@@ -131,19 +90,19 @@
             "post-install": [
               "sed 's/application-x-spiceup/com.github.philip_scott.spice-up-mime/' /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml > /app/share/mime/packages/com.github.philip_scott.spice-up.mime.xml",
               "rm /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml",
-              "for icon_size in 16x16 22x22 24x24 32x32 48x48 64x64 128x128 scalable; do
+              "for icon_size in 16x16 22x22 24x24 32x32 48x48 64x64 128x128 256x256 512x512 scalable; do
                    mv /app/share/icons/hicolor/${icon_size}/mimetypes/{application-x-spiceup,com.github.philip_scott.spice-up-mime}.svg
                done"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.1.0.tar.gz",
-                    "sha256": "f9d0d04ec547767d2749201909bc7ae9721c012f1d02bd123465c343b2bebc0a"
+                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.3.2.tar.gz",
+                    "sha256": "0557bdf871d20c7e9340a628ffc0c31ed14463e4787b662bb44ccd6d02c38ead"
                 },
                 {
                     "type": "patch",
-                    "path": "appid-rename.patch"
+                    "path": "appid-rename-elementary-theme.patch"
                 }
             ]
         }
