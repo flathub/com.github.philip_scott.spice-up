@@ -1,7 +1,7 @@
 {
     "id": "com.github.philip_scott.spice-up",
     "base": "io.elementary.BaseApp",
-	"base-version": "juno",
+    "base-version": "juno",
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "18.08",
     "sdk": "org.freedesktop.Sdk",
@@ -97,6 +97,10 @@
                 {
                     "type": "patch",
                     "path": "appid-rename-elementary-theme.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "appdata-app-id.patch"
                 }
             ]
         }
