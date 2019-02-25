@@ -1,11 +1,21 @@
---- a/data/com.github.philip-scott.spice-up.appdata.xml	2018-10-04 02:48:01.000000000 +0200
-+++ b/data/com.github.philip-scott.spice-up.appdata.xml	2018-10-17 13:46:05.940049544 +0200
+--- a/data/com.github.philip-scott.spice-up.appdata.xml	2019-01-20 01:13:29.000000000 +0100
++++ b/data/com.github.philip-scott.spice-up.appdata.xml	2019-02-25 20:46:06.778749664 +0100
 @@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
- <!-- Copyright (c) 2016 Felipe Escoto (https://github.com/Philip-Scott/Spice-up) -->
+ <!-- Copyright (c) 2016-2018 Felipe Escoto (https://github.com/Philip-Scott/Spice-up) -->
  <component type="desktop">
 -  <id>com.github.philip-scott.spice-up</id>
 +  <id>com.github.philip_scott.spice-up</id>
    <metadata_license>CC0-1.0</metadata_license>
    <project_license>GPL-3.0+</project_license>
    <name>Spice-Up</name>
+@@ -26,7 +26,9 @@
+   </description>
+   <provides>
+     <binary>spice-up</binary>
++    <id>com.github.philip-scott.spice-up</id>
+   </provides>
++  <launchable type="desktop-id">com.github.philip_scott.spice-up.desktop</launchable>
+   <releases>
+     <release version="1.8.0" date="2019-01-20">
+       <description>
