@@ -1,5 +1,5 @@
---- a/src/Application.vala	2019-01-20 01:13:29.000000000 +0100
-+++ b/src/Application.vala	2019-02-25 20:43:48.047551659 +0100
+--- a/src/Application.vala	2019-05-06 06:03:55.000000000 +0200
++++ b/src/Application.vala	2019-06-02 18:32:20.105244744 +0200
 @@ -27,7 +27,7 @@
  public class Spice.Application : Granite.Application {
      public const string PROGRAM_NAME = N_("Spice-Up");
@@ -9,14 +9,12 @@
      public const string RESOURCE_PATH = "/com/github/philip-scott/spice-up/";
  
      public bool running = false;
-@@ -61,6 +61,10 @@
+@@ -79,6 +79,8 @@
  
-     public override void open (File[] files, string hint) {
-         init ();
-+      
-+        Gtk.Settings.get_default().set_property("gtk-theme-name", "elementary");
-+        Gtk.Settings.get_default().set_property("gtk-icon-theme-name", "elementary");
-+
-         foreach (var file in files) {
-             if (is_file_opened (file)) {
-                 // Preset active window with file
+     private void init () {
+         if (!running) {
++            Gtk.Settings.get_default().gtk_theme_name = "elementary";
++            Gtk.Settings.get_default().gtk_icon_theme_name = "elementary";
+             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+             default_theme.add_resource_path (RESOURCE_PATH);
