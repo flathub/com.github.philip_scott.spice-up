@@ -1,9 +1,9 @@
 {
     "id": "com.github.philip_scott.spice-up",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno",
+    "base-version": "juno-19.08",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "18.08",
+    "runtime-version": "19.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "com.github.philip-scott.spice-up",
     "copy-icon": true,
@@ -15,10 +15,7 @@
             "--device=all",
             "--socket=wayland",
             "--filesystem=home",
-            "--talk-name=ca.desrt.dconf",
-            "--filesystem=xdg-run/dconf",
-            "--filesystem=~/.config/dconf:ro",
-            "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+            "--talk-name=org.freedesktop.ScreenSaver"
     ],
     "modules": [
         "shared-modules/udev/udev-175.json",
@@ -35,8 +32,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.5.9.tar.xz",
-                    "sha256": "e1663751443bed9d3e76a4fe2caf6fa866a79705d91cacad815c04e706198a75"
+                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.8.0.tar.xz",
+                    "sha256": "20d3cae4efd277f485abdf8f2a7c46588e539998b5a08c2c4d368218379d4211"
                 }
             ]
         },
