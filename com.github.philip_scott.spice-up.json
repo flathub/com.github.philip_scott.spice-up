@@ -18,7 +18,7 @@
             "--talk-name=org.freedesktop.ScreenSaver"
     ],
     "modules": [
-        "shared-modules/udev/udev-175.json",
+        "shared-modules/gudev/gudev.json",
         {
             "name": "libevdev",
             "config-opts": ["--disable-static"],
