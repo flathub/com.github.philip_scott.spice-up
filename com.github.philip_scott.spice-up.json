@@ -1,9 +1,9 @@
 {
     "id": "com.github.philip_scott.spice-up",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-20.08",
+    "base-version": "juno-22.08",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "22.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "com.github.philip-scott.spice-up",
     "copy-icon": true,
