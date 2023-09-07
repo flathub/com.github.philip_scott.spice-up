@@ -7,7 +7,8 @@
     "sdk": "org.freedesktop.Sdk",
     "command": "com.github.philip_scott.spice-up",
     "finish-args": [
-            "--share=ipc", "--socket=x11",
+            "--share=ipc",
+            "--socket=fallback-x11",
             "--device=all",
             "--socket=wayland",
             "--filesystem=home",
