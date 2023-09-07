@@ -1,14 +1,16 @@
---- a/data/com.github.philip-scott.spice-up.appdata.xml	2019-01-20 01:13:29.000000000 +0100
-+++ b/data/com.github.philip-scott.spice-up.appdata.xml	2019-02-25 20:46:06.778749664 +0100
-@@ -1,7 +1,7 @@
- <?xml version="1.0" encoding="UTF-8"?>
- <!-- Copyright (c) 2016-2018 Felipe Escoto (https://github.com/Philip-Scott/Spice-up) -->
- <component type="desktop">
--  <id>com.github.philip-scott.spice-up</id>
-+  <id>com.github.philip_scott.spice-up</id>
-   <metadata_license>CC0-1.0</metadata_license>
-   <project_license>GPL-3.0+</project_license>
-   <name>Spice-Up</name>
+From adc3edae326caa8a48bb10c1aad2c24444eaf928 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Thu, 7 Sep 2023 19:19:17 +0530
+Subject: [PATCH] Appdata patch
+
+---
+ data/com.github.philip_scott.spice-up.appdata.xml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/data/com.github.philip_scott.spice-up.appdata.xml b/data/com.github.philip_scott.spice-up.appdata.xml
+index 4c73c4d..119a33f 100644
+--- a/data/com.github.philip_scott.spice-up.appdata.xml
++++ b/data/com.github.philip_scott.spice-up.appdata.xml
 @@ -26,7 +26,9 @@
    </description>
    <provides>
@@ -17,5 +19,7 @@
    </provides>
 +  <launchable type="desktop-id">com.github.philip_scott.spice-up.desktop</launchable>
    <releases>
-     <release version="1.8.0" date="2019-01-20">
+     <release version="1.9.1" date="2021-12-31">
        <description>
+--
+2.41.0
