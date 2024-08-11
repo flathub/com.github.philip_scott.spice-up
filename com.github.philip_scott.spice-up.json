@@ -1,17 +1,14 @@
 {
     "id": "com.github.philip_scott.spice-up",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-20.08",
+    "base-version": "juno-22.08",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "22.08",
     "sdk": "org.freedesktop.Sdk",
-    "command": "com.github.philip-scott.spice-up",
-    "copy-icon": true,
-    "rename-icon": "com.github.philip-scott.spice-up",
-    "rename-desktop-file": "com.github.philip-scott.spice-up.desktop",
-    "rename-appdata-file": "com.github.philip-scott.spice-up.appdata.xml",
+    "command": "com.github.philip_scott.spice-up",
     "finish-args": [
-            "--share=ipc", "--socket=x11",
+            "--share=ipc",
+            "--socket=fallback-x11",
             "--device=all",
             "--socket=wayland",
             "--filesystem=home",
@@ -19,6 +16,7 @@
     ],
     "modules": [
         "shared-modules/gudev/gudev.json",
+        "shared-modules/libsoup/libsoup-2.4.json",
         {
             "name": "libevdev",
             "config-opts": ["--disable-static"],
@@ -32,26 +30,19 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.8.0.tar.xz",
-                    "sha256": "20d3cae4efd277f485abdf8f2a7c46588e539998b5a08c2c4d368218379d4211"
+                    "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.13.1.tar.xz",
+                    "sha256": "06a77bf2ac5c993305882bc1641017f5bec1592d6d1b64787bad492ab34f2f36"
                 }
             ]
         },
         {
             "name": "spiceup",
-            "buildsystem": "cmake",
-            "post-install": [
-              "sed 's/application-x-spiceup/com.github.philip_scott.spice-up-mime/' /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml > /app/share/mime/packages/com.github.philip_scott.spice-up.mime.xml",
-              "rm /app/share/mime/packages/com.github.philip-scott.spice-up.mime.xml",
-              "for icon_size in 16x16 24x24 32x32 48x48 64x64 128x128 scalable; do
-                   mv /app/share/icons/hicolor/${icon_size}/mimetypes/{application-x-spiceup,com.github.philip_scott.spice-up-mime}.svg
-               done"
-            ],
+            "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.8.2.tar.gz",
-                    "sha256": "67783d7fb8f7a4756f4312e8a43d4d9c9d60524956dd3de9076506a2da513c17"
+                    "url": "https://github.com/Philip-Scott/Spice-up/archive/1.9.1.tar.gz",
+                    "sha256": "39ca3f5cbfc1dbd46bc0847c81f8f0e41326dbecb8d74d7eb107c5f970a4ef3d"
                 },
                 {
                     "type": "patch",
@@ -60,10 +51,6 @@
                 {
                     "type": "patch",
                     "path": "appdata-app-id.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "newer-vala.patch"
                 }
             ]
         }

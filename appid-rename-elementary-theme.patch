@@ -1,16 +1,18 @@
---- a/src/Application.vala	2019-05-06 06:03:55.000000000 +0200
-+++ b/src/Application.vala	2019-06-02 18:32:20.105244744 +0200
-@@ -27,7 +27,7 @@
- public class Spice.Application : Granite.Application {
-     public const string PROGRAM_NAME = N_("Spice-Up");
-     public const string ABOUT_STOCK = N_("About Spice-Up");
--    public const string APP_ID = "com.github.philip-scott.spice-up";
-+    public const string APP_ID = "com.github.philip_scott.spice-up";
-     public const string RESOURCE_PATH = "/com/github/philip-scott/spice-up/";
- 
-     public bool running = false;
-@@ -79,6 +79,8 @@
- 
+From 15899a28980a0a00aa03b4fc711db4fd21154bba Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Thu, 7 Sep 2023 19:22:31 +0530
+Subject: [PATCH] Elementary theme patch
+
+---
+ src/Application.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/Application.vala b/src/Application.vala
+index e304d07..2fa907f 100644
+--- a/src/Application.vala
++++ b/src/Application.vala
+@@ -77,6 +77,8 @@ public class Spice.Application : Gtk.Application {
+
      private void init () {
          if (!running) {
 +            Gtk.Settings.get_default().gtk_theme_name = "elementary";
@@ -18,3 +20,5 @@
              Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
              weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
              default_theme.add_resource_path (RESOURCE_PATH);
+--
+2.41.0
