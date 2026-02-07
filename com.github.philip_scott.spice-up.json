@@ -22,7 +22,6 @@
             "--talk-name=org.freedesktop.ScreenSaver"
     ],
     "modules": [
-        "shared-modules/gudev/gudev.json",
         "shared-modules/libsoup/libsoup-2.4.json",
         {
             "name": "libevdev",
