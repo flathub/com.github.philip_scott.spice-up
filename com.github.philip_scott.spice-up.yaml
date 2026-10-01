@@ -1,0 +1,58 @@
+id: com.github.philip_scott.spice-up
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+base: io.elementary.BaseApp
+base-version: tanit-26.08
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+build-options:
+  prepend-path: /usr/lib/sdk/vala/bin/
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
+command: com.github.philip_scott.spice-up
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --device=all
+  - --socket=wayland
+  - --filesystem=home
+  - --talk-name=org.freedesktop.ScreenSaver
+cleanup:
+  - '*.la'
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+modules:
+  - shared-modules/libsoup/libsoup-2.4.json
+
+  # Required by the granite. The base app no longer provides it.
+  - name: libgee
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz
+        sha256: 189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee
+
+  - name: libevdev
+    config-opts:
+      - --disable-static
+    cleanup:
+      - /bin
+      - /share/man
+    sources:
+      - type: archive
+        url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.1.tar.xz
+        sha256: 06a77bf2ac5c993305882bc1641017f5bec1592d6d1b64787bad492ab34f2f36
+
+  - name: spiceup
+    buildsystem: meson
+    post-install:
+      - mkdir -p /app/share/icons/hicolor/scalable/apps
+      - mv /app/share/icons/hicolor/128x128@2/apps/${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps/
+      - find /app/share/icons/hicolor -type f -not -path "*scalable*" -not -path "*actions*" -name "*.svg" -delete
+    sources:
+      - type: archive
+        url: https://github.com/Philip-Scott/Spice-up/archive/1.9.1.tar.gz
+        sha256: 39ca3f5cbfc1dbd46bc0847c81f8f0e41326dbecb8d74d7eb107c5f970a4ef3d
+      - type: patch
+        paths:
+          - appid-rename-elementary-theme.patch
+          - appdata-app-id.patch
